@@ -59,3 +59,6 @@ FROM `exam_student`
 GROUP BY `exam_id`;
 
 -- 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+SELECT COUNT(*) AS `numero_corsi`, `department_id` AS `dipartimento` 
+FROM `degrees` 
+GROUP BY `dipartimento`;
