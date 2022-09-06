@@ -30,6 +30,10 @@ SELECT `name` AS `corsi_di_laurea_magistrale`
 FROM `degrees` 
 WHERE `name` LIKE '%Magistrale%';
 
+SELECT `name` AS `corsi_di_laurea_magistrale` 
+FROM `degrees` 
+WHERE `level` LIKE 'magistrale';
+
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 SELECT COUNT(*) AS `totale_dipartimenti` 
 FROM `departments`;
