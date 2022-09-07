@@ -15,15 +15,25 @@ SELECT `name` AS `nome`, `surname` AS `cognome`, `date_of_birth` AS `data_di_nas
 FROM `students`
 WHERE YEAR(`date_of_birth`) < 1992;
 
+SELECT `name` AS `nome`, `surname` AS `cognome`, `date_of_birth` AS `data_di_nascita` 
+FROM `students`
+WHERE `date_of_birth` < DATE_SUB(CURDATE(), INTERVAL 30 YEAR);
+
+SELECT `name` AS `nome`, `surname` AS `cognome`, `date_of_birth` AS `data_di_nascita` 
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
+
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 SELECT `name` AS `nome_corso`, `period` AS `semestre`, `year` AS `anno` 
 FROM `courses` 
-WHERE `period` = 'I semestre' AND `year` = '1';
+WHERE `period` = 'I semestre' 
+AND `year` = '1';
 
 -- 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
 SELECT `id` AS `codice_sessione`, `date` AS `data`, `hour` AS `ora` 
 FROM `exams` 
-WHERE `date` LIKE '2020-06-20' AND `hour` >= '14:00:00';
+WHERE `date` LIKE '2020-06-20' 
+AND `hour` >= '14:00:00';
 
 -- 6. Selezionare tutti i corsi di laurea magistrale (38)
 SELECT `name` AS `corsi_di_laurea_magistrale` 
