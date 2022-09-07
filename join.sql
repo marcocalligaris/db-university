@@ -5,6 +5,13 @@ JOIN `students`
 ON `degrees`.`id` = `students`.`degree_id` 
 WHERE `degrees`.`id` = 53;
 
+SELECT `degrees`.`name` AS `Corso di Laurea`, `students`.`name` AS `Nome`, `students`.`surname` AS `Cognome` 
+FROM `degrees` 
+JOIN `students` 
+ON `degrees`.`id` = `students`.`degree_id` 
+WHERE `degrees`.`name` 
+LIKE 'Corso di Laurea in Economia';
+
 -- 2. Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
 
 
